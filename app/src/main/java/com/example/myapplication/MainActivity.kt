@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.security.MessageDigest
 import kotlin.math.log
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -62,20 +63,11 @@ class MainActivity : AppCompatActivity() {
                 Log.i("Login", "Login exitoso: Usuario: $usuario y Contraseña: $contrase")
                 setContentView(R.layout.activity_dos)
 
-                // Configurar el RecyclerView para mostrar la lista de carros
-               // val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-                //recyclerView.layoutManager = LinearLayoutManager(this)
-
-                val cars = listOf(
-                    Car("Toyota", "Corolla"),
-                    Car("Honda", "Civic"),
-                    Car("Ford", "Mustang")
-                )
-
                // recyclerView.adapter = CarAdapter(cars)
             } else {
                 // Si el usuario no es válido, mostramos un mensaje de error
                 Log.i("Login", "Login fallido: Usuario o contraseña incorrectos")
+                Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
             }
         }
 
